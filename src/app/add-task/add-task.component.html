@@ -1,4 +1,4 @@
 <div class="add_task">
-	<input type="text" class="add_task_input">
-	<button class="add_task_btn">Add Task</button>
+	<input type="text" class="add_task_input" [(ngModel)]="value">
+	<button class="add_task_btn" (click)="addTask()">Add Task</button>
 </div>

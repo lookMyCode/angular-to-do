@@ -2,8 +2,14 @@
   <div class="todo">
     <h1>My first React Aplication - To Do</h1>
 
-    <app-add-task></app-add-task>
+    <app-add-task
+      (onAdd)="addToTasks($event)"
+    ></app-add-task>
 
-    <app-tasks></app-tasks>
+    <app-tasks 
+      [todos]="todos"
+      (onRemove)="removeTask($event)"
+      (onChange)="changeTask($event)"
+    ></app-tasks>
   </div>
 </div>

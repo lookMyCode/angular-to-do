@@ -1,32 +1,20 @@
 <ul class="tasks">
-	<li>
+	<li *ngFor="let todo of todos">
 		<label>
-			<input type="checkbox">
+			<input 
+				type="checkbox" 
+				[checked]="todo.checked"
+				(change)="changeTask(todo.id)"
+			>
 			<div class="checkbox"></div>
 		</label>
-			<span>One thing</span>
-			<div class="remove_task">
-				<span>remove</span>
-			</div>
-	</li>
-	<li>
-			<label>
-				<input type="checkbox">
-				<div class="checkbox"></div>
-			</label>
-			<span>Two thisg</span>
-			<div class="remove_task">
-				<span>remove</span>
-			</div>
-	</li>
-	<li>
-			<label>
-				<input type="checkbox">
-				<div class="checkbox"></div>
-			</label>
-			<span>Three thing</span>
-			<div class="remove_task">
-				<span>remove</span>
-			</div>
+		<span 
+			[ngStyle]="{
+				textDecoration: todo.checked ? 'line-through' : 'none'
+			}"
+		>{{ todo.text }}</span>
+		<div class="remove_task" (click)="removeTask(todo.id)">
+			<span>remove</span>
+		</div>
 	</li>
 </ul>
